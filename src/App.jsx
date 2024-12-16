@@ -1,21 +1,25 @@
+import './App.css'
+
 import {
   Route,
+  RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
-  RouterProvider,
-} from "react-router-dom";
-import Root from "./Root.jsx";
-import "./App.css";
+} from 'react-router-dom'
+
+import Banner from './components/Homepage/Banner.jsx'
+import Root from './Root.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />}>
+    <Route path='/' element={<Root />}>
+      <Banner />
     </Route>
   )
-);
+)
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />
 }
 
-export default App;
+export default App
