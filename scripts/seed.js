@@ -1,6 +1,6 @@
 import { User, Product, db } from "../db/model.js";
-import userData from "./data/users.json" with { type: "json" };
-import productData from "./data/products.json" with { type: "json" };
+import userData from "./data/users.json" assert { type: "json" };
+import productData from "./data/products.json" assert { type: "json" };
 
 console.log("Syncing database...");
 await db.sync({ force: true });
@@ -10,9 +10,9 @@ console.log("Seeding database...");
 console.log("Creating users...");
 const usersInDB = await Promise.all(
   userData.map((user) => {
-    const { email, password } = user;
+    const { username, password } = user;
     const newUser = User.create({
-      email: email,
+      username: username,
       password: password
     });
     return newUser;
